@@ -1,66 +1,37 @@
 {
   "name": "bootshell",
-  "displayName": "bootshell",
-  "description": "bootshell",
-  "version": "0.0.1",
+  "displayName": "Bootshell Claude Launcher",
+  "description": "Launch Claude with location prompt",
+  "publisher": "kylepark",
+  "version": "0.1.12",
   "engines": {
-    "vscode": "^1.102.0"
+    "vscode": "^1.80.0"
   },
-  "categories": [
-    "Other"
-  ],
   "activationEvents": [
-    "*"
+    "onCommand:bootshell.openClaudeTerminal"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "bootshell.promptLocation",
-        "title": "Auto Terminal: Choose Location"
-      },
-      {
-        "command": "bootshell.autoOpen",
-        "title": "Auto Terminal: Open Saved Location"
-      },
-      {
-        "command": "bootshell.start",
-        "title": "Auto Terminal: Start"
+        "command": "bootshell.openClaudeTerminal",
+        "title": "Open Claude Terminal"
       }
-    ],
-    "configuration": {
-      "type": "object",
-      "title": "Auto Terminal",
-      "properties": {
-        "autoTerminal.location": {
-          "type": "string",
-          "enum": [
-            "editor",
-            "panel"
-          ],
-          "default": "editor",
-          "description": "Terminal location (editor = right, panel = bottom)"
-        }
-      }
-    }
+    ]
+  },
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keepitblazing/bootshell"
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "tsc -p ./",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test"
+    "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
-    "@types/vscode": "^1.102.0",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "20.x",
-    "@typescript-eslint/eslint-plugin": "^8.31.1",
-    "@typescript-eslint/parser": "^8.31.1",
-    "eslint": "^9.25.1",
-    "typescript": "^5.8.3",
-    "@vscode/test-cli": "^0.0.11",
-    "@vscode/test-electron": "^2.5.2"
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0",
+    "vsce": "^2.20.0"
   }
 }
