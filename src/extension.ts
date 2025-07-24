@@ -28,6 +28,14 @@ export function activate(context: vscode.ExtensionContext) {
               ? { viewColumn: vscode.ViewColumn.Two }
               : vscode.TerminalLocation.Panel;
 
+        const modelSelect = await vscode.window.showQuickPick(
+          ["sonnet-4", "opus-4"],
+          {
+            placeHolder: "Select the model to use",
+          }
+        );
+        if (!modelSelect) return;
+
         // Create terminal
         const terminal = vscode.window.createTerminal({
           name: "Claude Code",
@@ -37,7 +45,11 @@ export function activate(context: vscode.ExtensionContext) {
         terminal.show();
 
         if (runClaude) {
-          terminal.sendText("claude", true);
+          if (modelSelect === "sonnet-4") {
+            terminal.sendText("claude", true);
+          } else {
+            terminal.sendText("claude --model opus-4", true);
+          }
         }
       }
     )
