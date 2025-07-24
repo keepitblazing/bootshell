@@ -48,7 +48,7 @@ export function activate(context: vscode.ExtensionContext) {
           if (modelSelect === "sonnet-4") {
             terminal.sendText("claude", true);
           } else {
-            terminal.sendText("claude --model opus-4", true);
+            terminal.sendText("claude --model claude-opus-4-20250514", true);
           }
         }
       }
