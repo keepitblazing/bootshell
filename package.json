@@ -3,7 +3,7 @@
   "displayName": "Bootshell Claude Launcher",
   "description": "Launch Claude with location prompt",
   "publisher": "kylepark",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "engines": {
     "vscode": "^1.80.0"
   },
